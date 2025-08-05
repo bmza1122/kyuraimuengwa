@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>เกมที่เล่น | CHOKAPH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ตัว Modal backdrop และตำแหน่งกลางจอ */
+    #modal {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body class="bg-black text-white text-center py-12 font-sans">
+
+  <h1 class="text-4xl text-green-400 font-bold">เกมที่ฉันเล่น</h1>
+  
+  <ul class="mt-6 space-y-4 max-w-md mx-auto">
+    <li 
+      onclick="openModal('valorant')" 
+      class="cursor-pointer flex items-center bg-gray-900 border-2 border-red-400 rounded-lg p-3 shadow-lg hover:bg-green-900 transition-colors"
+      tabindex="0" role="button" aria-pressed="false"
+      onkeydown="if(event.key==='Enter') openModal('valorant')"
+    >
+      <img src="./img/valorant.jpg" alt="Valorant" class="w-12 h-12 mr-4 object-contain" />
+      <span class="text-lg font-semibold">🎮 Valorant</span>
+    </li>
+    <li 
+      onclick="openModal('fiveM')" 
+      class="cursor-pointer flex items-center bg-gray-900 border-2 border-blue-400 rounded-lg p-3 shadow-lg hover:bg-green-900 transition-colors"
+      tabindex="0" role="button" aria-pressed="false"
+      onkeydown="if(event.key==='Enter') openModal('fiveM')"
+    >
+      <img src="./img/FiveM.png" alt="FiveM" class="w-12 h-12 mr-4 object-contain" />
+      <span class="text-lg font-semibold">🕹 FiveM</span>
+    </li>
+    <li 
+      onclick="openModal('apex')" 
+      class="cursor-pointer flex items-center bg-gray-900 border-2 border-pink-400 rounded-lg p-3 shadow-lg hover:bg-green-900 transition-colors"
+      tabindex="0" role="button" aria-pressed="false"
+      onkeydown="if(event.key==='Enter') openModal('apex')"
+    >
+      <img src="./img/Apex.png" alt="Apex Legends" class="w-12 h-12 mr-4 object-contain" />
+      <span class="text-lg font-semibold">🔥 Apex Legends</span>
+    </li>
+    <li 
+      onclick="openModal('tft')" 
+      class="cursor-pointer flex items-center bg-gray-900 border-2 border-purple-400 rounded-lg p-3 shadow-lg hover:bg-green-900 transition-colors"
+      tabindex="0" role="button" aria-pressed="false"
+      onkeydown="if(event.key==='Enter') openModal('tft')"
+    >
+      <img src="./img/Teamfight Tactics.png" alt="Teamfight Tactics" class="w-12 h-12 mr-4 object-contain" />
+      <span class="text-lg font-semibold">🎮 Teamfight Tactics</span>
+    </li>
+  </ul>
+
+  <!-- Modal Popup -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50" aria-modal="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="bg-gray-900 rounded-lg p-6 max-w-lg text-left relative shadow-2xl">
+      <button aria-label="ปิดหน้าต่าง" onclick="closeModal()" class="absolute top-3 right-3 text-white text-3xl font-bold hover:text-red-500 transition">&times;</button>
+      <h2 id="modal-title" class="text-3xl font-bold mb-4 text-green-400"></h2>
+      <p id="modal-desc" class="text-gray-300 text-lg leading-relaxed"></p>
+    </div>
+  </div>
+
+  <a href="index.html" class="mt-8 inline-block text-green-400 underline hover:text-green-600 transition-colors">← กลับหน้าแรก</a>
+
+  <script>
+    const games = {
+      valorant: {
+        title: "Valorant",
+        desc: "เกมยิงปืน tactical FPS ที่เน้นทีมเวิร์คและตัวละครแต่ละตัวมีสกิลเฉพาะตัว\n\nตัวละครที่ผมชอบเล่น: Jett, Reyna, Raze\n\nไอดีตัวระคร Madridsuiiii#1234"
+      },
+      fiveM: {
+        title: "FiveM",
+        desc: "แพลตฟอร์ม multiplayer mod สำหรับ GTA V ให้เล่นกับเพื่อนแบบ Roleplay\n\nผมชอบเล่นบทบาทตำรวจในเซิร์ฟเวอร์ Roleplay ครับ\n\nplay in Zeer City Town"
+      },
+      apex: {
+        title: "Apex Legends",
+        desc: "เกมแนว battle royale ที่ผสมผสานตัวละครมีสกิลเฉพาะ\n\nตัวละครที่เล่นบ่อย: Wraith, Lifeline"
+      },
+      tft: {
+        title: "Teamfight Tactics",
+        desc: "เกมวางแผนจัดทีมแบบออโต้แบตเทิลที่มีตัวละครจาก League of Legends\n\nผมชอบใช้ทีมที่มีตัวละครสาย Assassins ครับ\n\nไอดีตัวระคร Madridsuiiii#1234"
+      }
+    };
+
+    function openModal(gameKey) {
+      const modal = document.getElementById('modal');
+      const title = document.getElementById('modal-title');
+      const desc = document.getElementById('modal-desc');
+
+      title.innerText = games[gameKey].title;
+      desc.innerText = games[gameKey].desc;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // ปิด scroll หน้าใต้ modal
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      // เปิด scroll กลับ
+      document.body.style.overflow = 'auto';
+    }
+
+    // ปิด modal ถ้าคลิกนอกกล่องเนื้อหา
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if(event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

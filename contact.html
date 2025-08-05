@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ติดต่อ | CHOKAPH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #facc15; /* สีเหลืองสว่างอ่านง่าย */
+    }
+
+    body {
+      display: flex;
+      align-items: center;      /* แนวตั้งกลางจอ */
+      justify-content: center;  /* แนวนอนกลางจอ */
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    /* พื้นหลังแสงวืบวาบเหลืองนุ่ม */
+    .animated-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(250, 204, 21, 0.12), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(250, 190, 0, 0.1), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(255, 255, 150, 0.07), transparent 40%);
+      animation: moveLights 12s ease-in-out infinite alternate;
+      z-index: -1;
+      filter: blur(80px);
+      opacity: 0.6;
+    }
+    @keyframes moveLights {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-8%, -12%) scale(1.15); }
+    }
+
+    /* กล่อง Glassmorphism สีเหลือง */
+    .glow-border {
+      background: rgba(255 255 255 / 0.05);
+      backdrop-filter: saturate(180%) blur(18px);
+      border-radius: 1rem;
+      border: 1.8px solid rgba(250, 204, 21, 0.6);
+      box-shadow:
+        0 8px 32px rgba(0 0 0 / 0.35),
+        0 0 35px rgba(250, 204, 21, 0.5);
+      padding: 2.5rem 3rem;
+      max-width: 480px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+    .glow-border:hover {
+      box-shadow:
+        0 12px 48px rgba(0 0 0 / 0.6),
+        0 0 50px rgba(250, 204, 21, 0.8);
+    }
+
+    h1.title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: 2rem;
+      animation: pulseGlow 2.5s ease-in-out infinite;
+    }
+
+    .content p {
+      font-size: 1.125rem;
+      color: #fcd34d;
+      margin: 0.7rem 0;
+      font-weight: 600;
+    }
+
+    .content span.highlight {
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    a.btn-back {
+      display: inline-block;
+      background-color: #facc15;
+      color: #000;
+      font-weight: 700;
+      padding: 0.65rem 2rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 20px #facc15cc;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      margin-top: 2.5rem;
+    }
+    a.btn-back:hover {
+      background-color: #fbbf24;
+      box-shadow: 0 0 30px #fbbf24dd;
+      transform: scale(1.1);
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 10px #facc15cc, 0 0 30px #facc1599; }
+      50% { text-shadow: 0 0 20px #facc15ee, 0 0 40px #facc15cc; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animated-bg"></div>
+
+  <main class="glow-border" role="main" aria-label="ติดต่อฉัน">
+    <h1 class="title">📡 ติดต่อฉัน</h1>
+
+    <div class="content">
+      <p>📧 <span class="highlight">uioshhh@gmail.com</span></p>
+      <p>💬 Discord: <span class="highlight">แต๊เเว๊ดดด#jedum</span></p>
+    </div>
+
+    <a href="index.html" class="btn-back" aria-label="กลับหน้าแรก">← กลับหน้าแรก</a>
+  </main>
+
+</body>
+</html>

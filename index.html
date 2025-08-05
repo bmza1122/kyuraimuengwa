@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>CHOKAPH | Gamer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: black;
+      overflow: hidden;
+    }
+
+    .glow-layer {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+      animation: pulse 6s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.05; transform: scale(1.2); }
+    }
+
+    .neon-btn {
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,255,255,0.4);
+    }
+
+    .neon-btn:hover {
+      box-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.4);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="text-white relative">
+
+  <!-- Glow Background -->
+  <div class="glow-layer"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center py-16 px-6">
+    <img src="/assets/img/Avatar.png" class="w-32 h-32 mx-auto rounded-full border-4 border-cyan-400 shadow-xl" alt="Avatar">
+    <h1 class="text-5xl mt-6 font-bold text-cyan-400 animate-fade-down">CHOKAPH</h1>
+    <p class="text-gray-400 mt-2">🎮 Pro Gamer • 🎨 Designer • 💻 Developer</p>
+
+    <!-- Social Buttons -->
+    <div class="flex justify-center gap-6 mt-8">
+      <a href="https://www.twitch.tv/" target="_blank" class="neon-btn px-5 py-3 rounded-lg flex items-center gap-2 text-cyan-300">
+        <i data-lucide="twitch"></i> Twitch
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" class="neon-btn px-5 py-3 rounded-lg flex items-center gap-2 text-red-400">
+        <i data-lucide="youtube"></i> YouTube
+      </a>
+      <a href="https://discord.com/" target="_blank" class="neon-btn px-5 py-3 rounded-lg flex items-center gap-2 text-indigo-400">
+        <i data-lucide="message-square"></i> Discord
+      </a>
+    </div>
+
+    <!-- Menu -->
+    <div class="mt-12 max-w-md mx-auto">
+      <div class="flex flex-col gap-4">
+        <a href="about.html" class="neon-btn py-3 px-6 rounded text-cyan-200 text-lg">🧠 เกี่ยวกับฉัน</a>
+        <a href="games.html" class="neon-btn py-3 px-6 rounded text-cyan-200 text-lg">🎮 เกมที่เล่น</a>
+        <a href="contact.html" class="neon-btn py-3 px-6 rounded text-cyan-200 text-lg">📞 ติดต่อ</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
